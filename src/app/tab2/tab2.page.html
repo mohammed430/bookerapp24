@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Book
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-card  *ngFor="let book of book" >
+    <img src="{{ book.image }}"class="center"/>
+    <ion-card-header>
+      <ion-card-subtitle>This book is {{ book.status }} </ion-card-subtitle>
+      <ion-card-title class="ion-text-capitalize">{{ book.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ book.abstract }}.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+<!--
+
+<ion-card *ngFor='let book of book'>
+  <ion-card-header>
+    <ion-card-subtitle>{{ book.published_date }}  </ion-card-subtitle>
+    <ion-card-title>{{ book.title }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ book.abstract }}
+  </ion-card-content>
+</ion-card> -->

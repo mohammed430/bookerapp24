@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add A Book
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list [formGroup]="bookform" lines="full">
+
+    <ion-item>
+      <ion-label position="floating">Book Cover (Image)</ion-label>
+      <ion-input formControlName="image" type="text" placeholder="Please paste an image URL"></ion-input>
+        <ion-item class="alert" *ngIf="image.dirty && image.invalid && image.touched ">
+          <ion-item *ngIf="image.errors?.required">Please insert your image</ion-item>
+          <ion-item *ngIf="image.errors?.minlength">Your image should be more than 10 letters</ion-item>
+        </ion-item>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contact Name</ion-label>
+      <ion-input formControlName="contact_name" placeholder="Whats your Name?"></ion-input>
+        <ion-item class="alert" *ngIf="contact_name.dirty && contact_name.invalid && contact_name.touched ">
+          <ion-item *ngIf="contact_name.errors?.required">Please insert your name</ion-item>
+          <ion-item *ngIf="contact_name.errors?.minlength">Your name should be at least 3 letters</ion-item>
+        </ion-item>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input formControlName="contact_name" type="number" placeholder="123 456 7890"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email Address</ion-label>
+      <ion-input formControlName="email" type="text" placeholder="Example@mail.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Abstract</ion-label>
+      <ion-input formControlName="abstract" type="text"></ion-input>
+        <ion-item class="alert" *ngIf="abstract.dirty && abstract.invalid && abstract.touched ">
+          <ion-item *ngIf="abstract.errors?.required">Please insert a breaf abstract about the book</ion-item>
+          <ion-item *ngIf="abstract.errors?.minlength">Abstract should be at least 50 letters</ion-item>
+        </ion-item>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Auther</ion-label>
+      <ion-input formControlName="auther" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input formControlName="title" type="text"></ion-input>
+        <ion-item class="alert" *ngIf="title.dirty && title.invalid && title.touched ">
+          <ion-item *ngIf="title.errors?.required">Please insert the book title</ion-item>
+        </ion-item>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Published Date</ion-label>
+      <ion-input formControlName="published_date" type="date"></ion-input>
+        <ion-item class="alert" *ngIf=" title.invalid && title.touched ">
+          <ion-item *ngIf="title.errors?.required">Please choose a date</ion-item>
+        </ion-item>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Category </ion-label>
+        <ion-select formControlName="category">
+          <ion-select-option value="action">Action</ion-select-option>
+          <ion-select-option value="horror">Horror</ion-select-option>
+          <ion-select-option value="drama">Drama</ion-select-option>
+          <ion-select-option value="romance">Romance</ion-select-option>
+          <ion-select-option value="fiction">Fiction</ion-select-option>
+        </ion-select>
+      <ion-item class="alert" *ngIf="category.invalid && category.touched">
+        <ion-item *ngIf="category.errors?.required">Please select one</ion-item>
+      </ion-item>
+    </ion-item>
+
+
+
+
+    <ion-item>
+      <ion-button [disabled]="bookform.invalid" (click)="onSubmit()">Submit</ion-button>
+    </ion-item>
+
+</ion-list>
+</ion-content>
